@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { useNavigate } from 'react-router-dom';
 
 function MovieCard(props) {
-
+  const navigate = useNavigate();
   return (
-    <div className='movies--card'>
+    <div className='movies--card' onClick={()=>{
+      navigate(`/movies/${props.imdbID}`)
+    }}>
         <div className='movie--card--poster' style={{backgroundImage:`url(${props.poster})`}}>
         </div>
         <div className='movie--card--title'>
@@ -17,9 +20,9 @@ function MovieCard(props) {
             <div>Type: {props.type}</div>
             
         </div>
-        <button className='movie--card--favourite'>
+        {/* <button className='movie--card--favourite'>
             Add To favourite
-        </button>
+        </button> */}
     </div>
   );
 }

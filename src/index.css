@@ -10,11 +10,16 @@ body {
     color: white;
     height: 100vh;
     background-color: #181823;
+    font-weight: bold;
 }
 
 #root {
     height: 100%;
     width: 100%;
+}
+
+.app {
+    height: 100%;
 }
 
 
@@ -29,6 +34,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     background-color: #4E31AA;
+    column-gap: 1rem;
 }
 
 .header--logo {
@@ -36,7 +42,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    min-width: 80px;
+    min-width: 200px;
     min-height: 80px;
     height: auto;
     width: auto;
@@ -87,7 +93,7 @@ body {
     align-items: center;
     color: white;
     background-color: #4e31aac2;
-    position: fixed;
+    position: relative;
     bottom: 0;
     font-size: 1.5rem;
 }
@@ -138,9 +144,10 @@ body {
     max-width: 400px;
     margin: auto;
     margin-top: 4rem;
-    border-radius: 4rem;
+    margin-bottom: 12rem;
+    border-radius: 1rem;
     padding: 1rem;
-    box-shadow: rgba(255, 217, 0, 0.558) 0px 22px 70px 4px;
+    box-shadow: rgb(246 0 255 / 30%) 0px 0px 10px 10px;
 }
 
 .jokes--card--title {
@@ -223,6 +230,8 @@ body {
 }
 
 .movies--card {
+    transition: all;
+    transition-duration: 300ms;
     /* border: 2px solid grey; */
     display: flex;
     flex-direction: column;
@@ -234,6 +243,11 @@ body {
     height: 400px;
     padding: 10px;
     border-top: 2px solid rgba(255, 217, 0, 0.49);
+}
+
+.movies--card:hover {
+    cursor: pointer;
+    background-color: rgb(246 0 255 / 30%);
 }
 
 .movie--card--poster {
@@ -284,4 +298,67 @@ body {
 
 .movie--card--favourite:hover {
     background-color: #c796fefd;
+}
+
+
+/* Movie Display */
+
+.movie--display {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.movie--display--left {
+    padding: 1rem;
+    min-height: 500px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 2px solid grey;
+}
+
+.movie--display--ratings {
+    min-height: 200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid grey;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.movie--display--right {
+    padding: 1rem;
+    min-height: 500px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid grey;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.movie--display--right div {
+    width: 100%;
+    border: 1px solid grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 10%;
+}
+
+.movie--display--poster {
+    /* border: 2px solid grey; */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    min-height: 400px;
 }

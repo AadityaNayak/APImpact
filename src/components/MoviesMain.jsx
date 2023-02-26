@@ -62,6 +62,7 @@ function MoviesMain() {
         return (
           <MovieCard
             key={item.imdbID}
+            imdbID={item.imdbID}
             title={item.Title}
             poster={item.Poster}
             type={item.Type}
@@ -98,8 +99,8 @@ function MoviesMain() {
       </div>
       <h3>Movies List</h3>
       <div className="movies--container">{listLoader()}</div>
-      <h3>Favourite</h3>
-      <div className="movies--container">{/* <MovieCard /> */}</div>
+      {/* <h3>Favourite</h3>
+      <div className="movies--container"><MovieCard /></div> */}
     </div>
   );
 }
