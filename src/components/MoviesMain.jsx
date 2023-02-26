@@ -8,7 +8,7 @@ function MoviesMain() {
 
   async function getInitialList() {
     let list = [{}];
-    let data = await fetch("http://www.omdbapi.com/?s=Avengers&apikey=32c0805");
+    let data = await fetch("https://www.omdbapi.com/?s=Avengers&apikey=32c0805");
     data = await data.json();
     console.log(data);
       list = await data.Search;
@@ -25,7 +25,7 @@ function MoviesMain() {
   async function searchMovie() {
     let list = [{}];
     let data = await fetch(
-      `http://www.omdbapi.com/?s=${searchValue}&apikey=32c0805`
+      `https://www.omdbapi.com/?s=${searchValue}&apikey=32c0805`
     );
     data = await data.json();
     console.log(data);
@@ -40,7 +40,7 @@ function MoviesMain() {
     if (event.key === "Enter") {
       let list = [{}];
       let data = await fetch(
-        `http://www.omdbapi.com/?s=${searchValue}&apikey=32c0805`
+        `https://www.omdbapi.com/?s=${searchValue}&apikey=32c0805`
       );
       data = await data.json();
       console.log(data);

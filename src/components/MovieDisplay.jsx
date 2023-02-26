@@ -23,7 +23,7 @@ function MovieDisplay() {
   });
 
   async function getMovie() {
-    let data = await fetch(`http://www.omdbapi.com/?i=${id}&apikey=32c0805`);
+    let data = await fetch(`https://www.omdbapi.com/?i=${id}&apikey=32c0805`);
     data = await data.json();
     if (data.Response == "True") {
       setMovieData(data);
