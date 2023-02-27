@@ -26,8 +26,22 @@ function MovieDisplay() {
     let data = await fetch(`https://www.omdbapi.com/?i=${id}&apikey=32c0805`);
     data = await data.json();
     if (data.Response == "True") {
-      setMovieData(data);
+      console.log(data)
+      setMovieData((prevMovieData)=>{
+        return{...prevMovieData, ...data};
+      });
     }
+  }
+
+  function displayRatings(){
+    let data = [];
+    if(movieData.Ratings.length > 0){
+      data = movieData.Ratings.map((element)=>{
+        return(<div>{element.Source}: {element.Value}</div>)
+      })
+    }
+    return data;
+    
   }
 
   React.useEffect(() => {
@@ -42,9 +56,7 @@ function MovieDisplay() {
         </div>
         <div className="movie--display--poster" style={{backgroundImage:`url(${movieData.Poster})`}}></div>
         <div className="movie--display--ratings">
-          <div>IMDB: {movieData.Ratings[0].Value}</div>
-          <div>Rotten Tomatoes: {movieData.Ratings[1].Value}</div>
-          <div>Metacritic: {movieData.Ratings[2].Value}</div>
+          {displayRatings()}
           <hr />
           <div>Box office collection: {movieData.BoxOffice}</div>
           <hr />

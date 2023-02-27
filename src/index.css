@@ -358,7 +358,7 @@ body {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    height: 10%;
+    min-height: 10%;
 }
 
 .movie--display--poster {
