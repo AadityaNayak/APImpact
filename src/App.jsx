@@ -6,20 +6,22 @@ import Footer from "./components/Footer";
 import JokesMain from "./components/JokesMain";
 import MoviesMain from "./components/MoviesMain";
 import MovieDisplay from "./components/MovieDisplay";
+import AnimeMain from "./components/AnimeMain";
 
 function App() {
   return (
     <div className="app">
       <BrowserRouter>
-      <Header />
+        <Header />
         <Routes>
           <Route path="/" element={<JokesMain />}></Route>
           <Route path="/jokes" element={<JokesMain />}></Route>
           <Route path="/movies" element={<MoviesMain />}></Route>
           <Route path="/movies/:id" element={<MovieDisplay />}></Route>
+          <Route path="/anime" element={<AnimeMain />}></Route>
         </Routes>
+        <Footer />
       </BrowserRouter>
-      <Footer />
     </div>
   );
 }
