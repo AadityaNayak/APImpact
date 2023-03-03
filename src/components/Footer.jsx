@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 function Footer() {
   return (
     <div className='footer'>
-      <h3>Contact - Aaditya Nayak</h3>
+      <h5>Contact - Aaditya Nayak</h5>
       <ul className='footer--contacts'>
             <li>
             <a href="https://www.linkedin.com/in/aaditya-nayak-an73a8208/" target="_blank" rel="noreferrer"><i className="fa-brands fa-linkedin"></i></a>

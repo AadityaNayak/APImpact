@@ -10,8 +10,8 @@ function AnimeDisplay() {
     images: { jpg: [{ large_image_url: "" }] },
     trailer: {
       url: "",
-      embed_url:
-        "",
+      embed_url: "",
+      youtube_id: "",
     },
     approved: true,
     titles: [],
@@ -81,7 +81,11 @@ function AnimeDisplay() {
   function streamingLoader() {
     let i = 1;
     let streams = animeData.streaming.map((item) => {
-      return <a href={item.url} key={i++}>{item.name}</a>;
+      return (
+        <a href={item.url} key={i++}>
+          {item.name}
+        </a>
+      );
     });
     return streams;
   }
@@ -137,7 +141,10 @@ function AnimeDisplay() {
       <hr style={{ width: "100%" }} />
       <div className="anime--display--trailer">
         <h4>Trailer</h4>
-        <iframe className="anime--display--iframe" src={animeData.trailer.embed_url}></iframe>
+        <iframe
+          className="anime--display--iframe"
+          src={`https://www.youtube.com/embed/${animeData.trailer.youtube_id}?enablejsapi=1&wmode=opaque&`}
+        ></iframe>
       </div>
     </div>
   );

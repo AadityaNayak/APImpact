@@ -7,6 +7,12 @@
     scroll-behavior: smooth;
 }
 
+html {
+    height: 100vh;
+    width: 100vw;
+    min-width: 300px;
+}
+
 body {
     color: white;
     height: 100vh;
@@ -37,6 +43,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .app {
+    width: 100%;
     height: 100vh;
 }
 
@@ -124,6 +131,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .footer--contacts {
+    margin-bottom: 0;
     width: 30%;
     list-style: none;
     display: flex;
@@ -147,7 +155,7 @@ body::-webkit-scrollbar-thumb {
     transition: all;
     transition-duration: 300ms;
     font-weight: bold;
-    padding: 1.2rem;
+    padding: 1.0rem;
 }
 
 .footer--contacts li:hover {
@@ -164,15 +172,15 @@ body::-webkit-scrollbar-thumb {
 .jokes--card {
     font-weight: bold;
     min-height: 300px;
-    min-width: 400px;
+    /* min-width: 400px; */
     max-width: 400px;
     margin: auto;
     margin-top: 4rem;
-    margin-bottom: 12rem;
+    /* margin-bottom: 12rem; */
     border-radius: 1rem;
     padding: 1rem;
     box-shadow: rgb(246 0 255 / 30%) 0px 0px 10px 10px;
-    min-width: 470px;
+    min-width: 300px;
 }
 
 .jokes--card--title {
@@ -255,7 +263,7 @@ body::-webkit-scrollbar-thumb {
     justify-content: flex-start;
     width: 100%;
     padding-bottom: 100px;
-    min-width: 390px;
+    min-width: 380px;
 }
 
 .movies--card {
@@ -272,7 +280,7 @@ body::-webkit-scrollbar-thumb {
     height: 400px;
     padding: 10px;
     border-top: 2px solid rgba(255, 217, 0, 0.49);
-    min-width: 400px;
+    min-width: 380px;
 }
 
 .movies--card:hover {
@@ -340,7 +348,7 @@ body::-webkit-scrollbar-thumb {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    min-width: 470px;
+    min-width: 370px;
     padding-bottom: 100px;
 }
 
@@ -396,23 +404,12 @@ body::-webkit-scrollbar-thumb {
     min-height: 400px;
 }
 
-@media only screen and (max-width: 900px) {
-    .header {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .header--nav {
-        padding: 0;
-    }
-}
-
 
 /* anime section */
 
 .anime--main {
     padding: 2rem;
-    min-width: 470px;
+    min-width: 370px;
 }
 
 .anime--container {
@@ -426,7 +423,7 @@ body::-webkit-scrollbar-thumb {
     -ms-overflow-style: none;
     scrollbar-width: none;
     margin-bottom: 100px;
-    min-width: 400px;
+    min-width: 350px;
 }
 
 .anime--container::-webkit-scrollbar {
@@ -461,7 +458,7 @@ body::-webkit-scrollbar-thumb {
     height: 500px;
     padding: 10px;
     border-top: 2px solid rgba(255, 217, 0, 0.49);
-    min-width: 400px;
+    min-width: 350px;
 }
 
 .anime--card--img {
@@ -507,7 +504,7 @@ body::-webkit-scrollbar-thumb {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    min-width: 470px;
+    min-width: 370px;
     padding-bottom: 100px;
     row-gap: 20px;
 }
@@ -593,14 +590,59 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .anime--display--iframe {
-    min-width: 400px;
+    min-width: 370px;
     width: 70%;
     height: 90%;
 }
 
 .anime--display--ratings {
     background-color: #b24e038c;
+}
+
+.anime--display--synopsis {
+    padding: 10px;
+}
+
+@media only screen and (max-width: 700px) {
+    .header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .header--nav {
+        padding: 0;
+    }
+    .jokes--card {
+        width: 80%;
+    }
+    .anime--display {
+        flex-direction: column;
+        align-items: center;
+    }
+    .movie--display {
+        flex-direction: column;
+        align-items: center;
+    }
+    .movie--display--left {
+        width: 100%;
+    }
+    .movie--display--right {
+        width: 100%;
+    }
+    .anime--display--left {
+        width: 100%;
+    }
+    .anime--display--right {
+        width: 100%;
+    }
+    .anime--display--trailer {
+        min-height: 350px;
+    }
+    .anime--display--iframe {
+        height: 300px;
+    }
 }
