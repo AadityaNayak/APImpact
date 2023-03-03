@@ -11,7 +11,7 @@ function AnimeMain() {
 
   async function getInitialList() {
     let list = { status: "" };
-    let data = await fetch("https://api.jikan.moe/v4/anime?q=Fullmetal&sfw");
+    let data = await fetch("https://api.jikan.moe/v4/top/anime");
     data = await data.json();
     console.log(data);
     list = data;

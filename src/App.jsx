@@ -7,6 +7,7 @@ import JokesMain from "./components/JokesMain";
 import MoviesMain from "./components/MoviesMain";
 import MovieDisplay from "./components/MovieDisplay";
 import AnimeMain from "./components/AnimeMain";
+import AnimeDisplay from "./components/AnimeDisplay";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/movies" element={<MoviesMain />}></Route>
           <Route path="/movies/:id" element={<MovieDisplay />}></Route>
           <Route path="/anime" element={<AnimeMain />}></Route>
+          <Route path="/anime/:id" element={<AnimeDisplay />}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>

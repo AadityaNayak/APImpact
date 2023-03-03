@@ -26,7 +26,6 @@ function MovieDisplay() {
     let data = await fetch(`https://www.omdbapi.com/?i=${id}&apikey=32c0805`);
     data = await data.json();
     if (data.Response == "True") {
-      console.log(data)
       setMovieData((prevMovieData)=>{
         return{...prevMovieData, ...data};
       });

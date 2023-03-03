@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 function AnimeCard(props) {
 
+  const navigate = useNavigate();
 
   function genreLoader(){
     let genres = (props.genres).map((item)=>{
@@ -11,9 +12,11 @@ function AnimeCard(props) {
     })
     return genres;
   }
-
+  
   return (
-    <div className="anime--card">
+    <div className="anime--card" onClick={()=>{
+      navigate(`/anime/${props.mal_id}`);
+    }}>
         <div className="anime--card--img" style={{backgroundImage:`url(${props.image})`}}>
         </div>
         <h3>{props.title} </h3>

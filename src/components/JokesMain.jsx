@@ -11,7 +11,6 @@ function JokesMain() {
       // https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=twopart
         let joke_data = await fetch('https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=twopart')
         joke_data = await joke_data.json();
-        console.log(joke_data)
         setJoke(joke_data);
     }
 

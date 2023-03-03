@@ -12,7 +12,6 @@ function MoviesMain() {
     data = await data.json();
     console.log(data);
       list = await data.Search;
-      console.log(list);
       setMoviesList(list);
     
   }
@@ -31,7 +30,6 @@ function MoviesMain() {
     console.log(data);
     if (data.Response == "True") {
       list = await data.Search;
-      console.log(list);
       setMoviesList(list);
     }
   }
@@ -46,7 +44,6 @@ function MoviesMain() {
       console.log(data);
       if (data.Response == "True") {
         list = await data.Search;
-        console.log(list);
         setMoviesList(list);
       }
     }
