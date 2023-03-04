@@ -6,19 +6,23 @@ import AnimeCard from "./AnimeCard";
 function AnimeMain() {
   let container;
 
-  let [animeList, setAnimeList] = React.useState([]);
-  let [searchValue, setSearchValue] = React.useState("");
+  const [animeList, setAnimeList] = React.useState([]);
+  const [searchValue, setSearchValue] = React.useState("");
+  const [mangaList, setMangaList] = React.useState([]);
 
   async function getInitialList() {
-    let list = { status: "" };
+    let data_ = [];
+    let data1_ = [];
     let data = await fetch("https://api.jikan.moe/v4/top/anime");
-    data = await data.json();
-    console.log(data);
-    list = data;
-    if (list.status !== 404) {
-      setAnimeList(list.data);
+    let data1 = await fetch("https://api.jikan.moe/v4/top/manga");
+    data_ = await data.json();
+    data1_ = await data1.json();
+    if (data.status === 200) {
+      setAnimeList(data_.data);
     }
-    console.log(list.data);
+    if (data1.status === 200) {
+      setMangaList(data1_.data);
+    }
   }
 
   function setSearchValue_func(event) {
@@ -27,42 +31,68 @@ function AnimeMain() {
   }
 
   async function searchAnime() {
-    let list = [{}];
+    let data_ = [];
+    let data1_ = [];
+
     let data = await fetch(
       `https://api.jikan.moe/v4/anime?q=${searchValue}&sfw`
     );
-    data = await data.json();
-    console.log(data);
-    list = data;
-    if (list.status !== 404) {
-      setAnimeList(list.data);
+    let data1 = await fetch(
+      `https://api.jikan.moe/v4/manga?q=${searchValue}&sfw`
+    );
+    data_ = await data.json();
+    data1_ = await data1.json();
+    if (data.status === 200) {
+      setAnimeList(data_.data);
+    }
+    if (data1.status === 200) {
+      setMangaList(data1_.data);
     }
     window.scrollBy(0, 300);
   }
 
   async function searchAnimeEnter(event) {
     if (event.key === "Enter") {
-      let list = [{}];
+      let data_ = [];
+      let data1_ = [];
+
       let data = await fetch(
         `https://api.jikan.moe/v4/anime?q=${searchValue}&sfw`
       );
-      data = await data.json();
-      list = data;
-      if (list.status !== 404) {
-        setAnimeList(list.data);
+      let data1 = await fetch(
+        `https://api.jikan.moe/v4/manga?q=${searchValue}&sfw`
+      );
+      data_ = await data.json();
+      data1_ = await data1.json();
+
+      if (data.status === 200) {
+        setAnimeList(data_.data);
+      }
+      if (data1.status === 200) {
+        setMangaList(data1_.data);
       }
       window.scrollBy(0, 300);
     }
   }
 
-  function sliderFunctionality(){
-    let container = document.getElementById("anime--container");
-    container.addEventListener("wheel", function (e) {
+  function sliderFunctionality() {
+    let anime_container = document.getElementById("anime--container");
+    let manga_container = document.getElementById("manga--container");
+    anime_container.addEventListener("wheel", function (e) {
       if (e.deltaY > 0) {
-        container.scrollLeft += 300;
+        anime_container.scrollLeft += 300;
         e.preventDefault();
       } else {
-        container.scrollLeft -= 300;
+        anime_container.scrollLeft -= 300;
+        e.preventDefault();
+      }
+    });
+    manga_container.addEventListener("wheel", function (e) {
+      if (e.deltaY > 0) {
+        manga_container.scrollLeft += 300;
+        e.preventDefault();
+      } else {
+        manga_container.scrollLeft -= 300;
         e.preventDefault();
       }
     });
@@ -73,7 +103,7 @@ function AnimeMain() {
     sliderFunctionality();
   }, []);
 
-  function listLoader() {
+  function animeListLoader() {
     if (animeList.length > 0) {
       let list = animeList.map((item) => {
         return (
@@ -86,6 +116,29 @@ function AnimeMain() {
             year={item.year}
             type={item.type}
             genres={item.genres}
+            switch_command={"anime"}
+          />
+        );
+      });
+      return list;
+    } else {
+      return "";
+    }
+  }
+  function mangaListLoader() {
+    if (mangaList.length > 0) {
+      let list = mangaList.map((item) => {
+        return (
+          <AnimeCard
+            key={item.mal_id}
+            mal_id={item.mal_id}
+            title={item.title}
+            image={item.images.jpg.image_url}
+            season={item.season}
+            year={item.year}
+            type={item.type}
+            genres={item.genres}
+            switch_command={"manga"}
           />
         );
       });
@@ -117,9 +170,18 @@ function AnimeMain() {
           Search
         </button>
       </div>
-      <h3>Anime List</h3>
+
+      {/* Anime */}
+
+      <h3>Anime</h3>
       <div className="anime--container" id="anime--container">
-        {listLoader()}
+        {animeListLoader()}
+      </div>
+
+      {/* Manga */}
+      <h3>Manga</h3>
+      <div className="anime--container manga--container" id="manga--container">
+        {mangaListLoader()}
       </div>
     </div>
   );

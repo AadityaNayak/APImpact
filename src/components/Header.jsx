@@ -16,9 +16,9 @@ function Header() {
         <Link to="/anime" className="text-link">
           <li>Anime</li>
         </Link>
-        <Link to="/stories" className="text-link">
+        {/* <Link to="/stories" className="text-link">
           <li>Stories</li>
-        </Link>
+        </Link> */}
       </ul>
     </div>
   );

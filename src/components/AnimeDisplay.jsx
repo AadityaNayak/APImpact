@@ -52,12 +52,14 @@ function AnimeDisplay() {
   });
 
   async function getAnime() {
+    let data_ = {}
     let data = await fetch(`https://api.jikan.moe/v4/anime/${id}/full`);
-    data = await data.json();
-    data = data.data;
-    setAnimeData((prevAnimeData) => {
-      return { ...prevAnimeData, ...data };
-    });
+    data_ = await data.json();
+    if (data.status == 200) {
+      setAnimeData((prevMovieData)=>{
+        return{...prevMovieData, ...data_.data};
+      });
+    }
   }
 
   function genreLoader() {
@@ -105,7 +107,7 @@ function AnimeDisplay() {
             {animeData.season} -- {animeData.year}
           </p>
         </div>
-        <hr />
+        <hr style={{ width: "100%" }}/>
         <div
           className="anime--display--img"
           style={{
@@ -114,7 +116,7 @@ function AnimeDisplay() {
         ></div>
         <div className="anime--display--ratings">
           <h4>MyAnimeList Stats</h4>
-          <hr />
+          <hr style={{ width: "100%" }}/>
           <p>Rank - {animeData.rank}</p>
           <p>Score - {animeData.score}</p>
           <p>Score by - {animeData.scored_by}</p>

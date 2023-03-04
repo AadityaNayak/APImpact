@@ -12,10 +12,19 @@ function AnimeCard(props) {
     })
     return genres;
   }
+
+  function clickHandler(){
+    if(props.switch_command === "anime"){
+      navigate(`/anime/${props.mal_id}`);
+    }
+    else{
+      navigate(`/manga/${props.mal_id}`);
+    }
+  }
   
   return (
     <div className="anime--card" onClick={()=>{
-      navigate(`/anime/${props.mal_id}`);
+      clickHandler();
     }}>
         <div className="anime--card--img" style={{backgroundImage:`url(${props.image})`}}>
         </div>
