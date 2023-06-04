@@ -3,8 +3,8 @@ from random import randint
 from datetime import datetime, timedelta  # Import timedelta
 
 # Set the start and end date
-start_date = "2023-07-15"
-end_date = "2023-07-25"
+start_date = "2023-06-05"
+end_date = "2023-06-10"
 
 # Convert start and end dates to datetime objects
 start_datetime = datetime.strptime(start_date, "%Y-%m-%d")
